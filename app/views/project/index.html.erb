@@ -1,0 +1,21 @@
+
+<div class="container">
+<% if @project== [] then %>
+ <h2>まだプロジェクトはありません</h2>
+ <%= link_to "新しくプロジェクトを作ってみましょう!" ,'/project/new',  method: :get %>
+<% end %>
+<% else %>
+<%= @project.each do |pros| %>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= pros.name %></h3>
+        <p></p>
+        <p><a href="#" class="btn btn-primary" role="button">編集する</a> <a href="#" class="btn btn-default" role="button">削除する</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+</div>
