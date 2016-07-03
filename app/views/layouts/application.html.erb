@@ -10,6 +10,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -23,16 +24,16 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-      <li><a href="#"><h2>Drillnote</h2></a></li>
+      <li><a href="/project/top"><h1>Drillnote</h1></a></li></ul>
 <% unless user_signed_in? then %>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><h6>ようこそ！ゲストさん</h6></a></li>
+        <li><a href="/users_sign_ip" style="position:relative;"><h4>ようこそ！ゲストさん</h4></a></li>
         <% end %>
 
 
 <% if user_signed_in? then %>
       <ul class="nav navbar-nav navbar-right" style = "float:right">
-        <li><a href="#"><h6>ようこそ！<%= current_user.email %>さん</h6></a></li>
+        <li><a href="/project" style="position:relative;"><h5>ようこそ！<%= current_user.email %>さん</h5</a></li>
         <li class="dropdown" style = "float:right">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -40,11 +41,10 @@
              <li><%= link_to "プロジェクト一覧", '/project', method: :get %></li>
             <li><%= link_to "ログアウト", '/users/sign_out',method: :delete %></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Drillnoteとは</a></li>
+            <li><%= link_to "Drillnoteとは" , '/project/top', method: :get %></li>
           </ul>
         </li>
         <% end %>
-      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>

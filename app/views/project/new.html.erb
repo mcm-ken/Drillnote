@@ -1,25 +1,12 @@
-<div class="contents row">
-  <%= form_for @project do |f| %>
+<div class="container">
+ <div class ="center_text">
+    <%= form_tag('/project', method: :post) do %>
     <h3>
       プロジェクトを作成する
     </h3>
-    <div class="col-lg-6">
-          <%= f.text_field :name, placeholder: "プロジェクト名",
-          class: "form-control" %>
-        </div>
-    <select value = "楽器を選択">
-    <%= @instrument.each do |ins| %>
-     <option value = "[<%= ins.logo %>]:<%= ins.name %>">[<%= ins.logo %>]:<%= ins.name %></option>
-     <% end %>
-     </select>
-
-     <select value = "メンバー数を選択">
-     <option value = "1"></option>
-    </select>
-    <textarea cols="30" name="member" placeholder="メンバー構成" rows="10"></textarea>
-    <div class="col-lg-6">
-    <%= f.text_field :member, placeholder: "メンバー構成", class: "form-control" %>
-        </div>
-    <%= f.submit "作成", class: "btn btn-primary withripple" %>
-  <% end %>
+    <input placeholder="プロジェクト名を入力" type="text" name="name">
+    <textarea cols="30" name="member" placeholder="メンバー構成を入力" rows="10"></textarea>
+    <input type="submit" value="SENT">
+   <% end %>
+ </div>
 </div>

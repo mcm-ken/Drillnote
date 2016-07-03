@@ -1,0 +1,28 @@
+<% if @sheets == [] then %>
+<div class="container">
+<div class="center_text">
+ <h2>まだドリルシートは書かれていません</h2>
+ <%= link_to "新しくドリルシートを作ってみましょう!" ,'/project/#{project_id}/sheet/new',  method: :get , class:  :center_text %>
+ </div>
+</div>
+<% else %>
+<% @sheets.each do |shets| %>
+<div class="container">
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= shets.name %></h3>
+        <p></p>
+        <p><span class="btn btn-primary" role="button">
+          <%= link_to '編集する', "/project/#{project_id}/sheet/#{shets.id}", method: :get %></span>
+        <span class="btn btn-primary" role="button">
+          <%= link_to '削除する', "/project/#{project_id}/sheet/#{shets.id}", method: :delete %></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<% end %>
+<% end %>
+</div>
