@@ -3,6 +3,7 @@
 <head>
   <title>Drillnote</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= include_gon %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -24,32 +25,36 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-      <li><a href="/project/top"><h1>Drillnote</h1></a></li></ul>
-<% unless user_signed_in? then %>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="/users_sign_ip" style="position:relative;"><h4>ようこそ！ゲストさん</h4></a></li>
-        <% end %>
+      <li><a href="/project/top"><h1 class="drillnote" style="margin-top:auto; margin-bottom:auto;">Drillnote</h1></a></li></ul>
 
 
 <% if user_signed_in? then %>
-      <ul class="nav navbar-nav navbar-right" style = "float:right">
-        <li><a href="/project" style="position:relative;"><h5>ようこそ！<%= current_user.email %>さん</h5</a></li>
-        <li class="dropdown" style = "float:right">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "新規プロジェクト作成", '/project/new', method: :get %></li>
-             <li><%= link_to "プロジェクト一覧", '/project', method: :get %></li>
-            <li><%= link_to "ログアウト", '/users/sign_out',method: :delete %></li>
-            <li role="separator" class="divider"></li>
-            <li><%= link_to "Drillnoteとは" , '/project/top', method: :get %></li>
-          </ul>
-        </li>
+   <ul class="nav nav-pills">
+    <li role="presentation" class="dropdown" style="float:right; margin-top:auto; margin-bottom:auto; margin-right:50px" >
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><h4 style="color:white; font-size:22px;">Menu</h4><span class="caret"></span></a>
+
+    <ul class="dropdown-menu">
+        <li><%= link_to 'マイページへ', "/project", method: :get %></li>
+        <li><a href="/project/new">新規ドリル作成</a></li>
+        <li><%= link_to 'ログアウト', "/users/sign_out", method: :delete %></li>
+        <li><a href="/project/questions">よくある質問</a></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="/project/top">About Drillnote</a></li>
+    </ul></li>
+    <li role="presentation" style="float:right; margin-top:auto; margin-bottom:auto;"><a href="/project/how"><h4 style="color:white; font-size:22px;">How to use</h4></a></li>
+    <li role="presentation" style="float:right; margin-top:auto; margin-bottom:auto;"><a href="/project"><h4 style="color:white; font-size:22px;">My Page</h4></a></li>
+   </ul>
+
         <% end %>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <%= yield %>
-
 </body>
+
+
+<footer id='footer'>
+      <p class="footeer">Copyright Drillnote 2016</p>
+</footer>
 </html>

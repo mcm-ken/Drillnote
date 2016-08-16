@@ -1,12 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :project do
+    member do
+    get 'setting'
+    end
     collection do
     get 'top'
+    get 'how'
+    get 'questions'
     end
-    resources :sheet
+    resources :sheet do
+      member do
+       get 'all'
+       get 'done'
+     end
+   end
+    resources :member
 end
-  root 'project#index'
+
+   root 'project#top'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

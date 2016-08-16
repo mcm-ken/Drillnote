@@ -4,8 +4,10 @@ class CreateSheets < ActiveRecord::Migration
 
       t.integer :number
       t.text :member
-      t.text :dots
-      t.integer :projtct_id
+      t.string :dots
+      t.integer :x
+      t.integer :y
+      t.integer :project_id
       t.integer :user_id
       t.timestamps
     end

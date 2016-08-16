@@ -52,5 +52,9 @@ group :development do
   gem 'therubyracer'
   gem 'twitter-bootstrap-rails'
   gem 'bootstrap-material-design', '0.1.4'
+  gem 'lazy_high_charts'
+  gem 'jquery-ui-rails'
+  gem 'gon'
+  gem 'jquery-turbolinks'
 end
 

@@ -12,6 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery-ui.min
+//= require jquery.ui.touch-punch
+//= require jquery.ui.touch-punch.min
+//= require jquery.turbolinks
 //= require turbolinks
 //= require bootstrap
 //= require_tree .

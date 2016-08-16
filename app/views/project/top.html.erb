@@ -1,257 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cardio: Free One Page Template by Luka Cvetinovic</title>
-  <meta name="description" content="Cardio is a free one page template made exclusively for Codrops by Luka Cvetinovic" />
-  <meta name="keywords" content="html template, css, free, one page, gym, fitness, web design" />
-  <meta name="author" content="Luka Cvetinovic for Codrops" />
-  <!-- Favicons (created with http://realfavicongenerator.net/)-->
-  <link rel="apple-touch-icon" sizes="57x57" href="img/favicons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="img/favicons/apple-touch-icon-60x60.png">
-  <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="manifest" href="img/favicons/manifest.json">
-  <link rel="shortcut icon" href="img/favicons/favicon.ico">
-  <meta name="msapplication-TileColor" content="#00a8ff">
-  <meta name="msapplication-config" content="img/favicons/browserconfig.xml">
-  <meta name="theme-color" content="#ffffff">
-  <!-- Normalize -->
-  <link rel="stylesheet" type="text/css" href="css/normalize.css">
-  <!-- Bootstrap -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <!-- Owl -->
-  <link rel="stylesheet" type="text/css" href="css/owl.css">
-  <!-- Animate.css -->
-  <link rel="stylesheet" type="text/css" href="css/animate.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.1.0/css/font-awesome.min.css">
-  <!-- Elegant Icons -->
-  <link rel="stylesheet" type="text/css" href="fonts/eleganticons/et-icons.css">
-  <!-- Main style -->
-  <link rel="stylesheet" type="text/css" href="css/cardio.css">
-</head>
+<div class="the_cavaliers">
+  <div class="first_content container">
+  <div class="row">
+    <h1 class="col-xs-12 col-lg-4 col-lg-offset-4" style="color:white; text-align:center; padding-top:130px; font-size:80px;">Drillnote</h1>
+    <div class="col-xs-12 col-lg-4 col-lg-offset-4" style="color:white; text-align:center; padding-top:20px">いつでもどこでもドリルを作成。思いついたアイデアをすぐにドリルにしましょう。
+    </div>
+    <% if user_signed_in? then %>
+    <div class="button_signin_top col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4"><a href="/project"><p style="text-align:center; color:white; font-size:30px; margin-top:auto; margin-bottom:auto;">マイページへ</p></a></div>
+    <% end %>
+    <% unless user_signed_in? %>
+         <div class="button_signin_top col-xs-12 col-lg-4 col-lg-offset-4"><a href="/users/sign_up"><p style="text-align:center; color:white; font-size:40px; margin-top:auto; margin-bottom:auto;">無料で新規登録</p></a></div>
+    <% end %>
+  </div></div>
 
-<body>
-  <section id="services" style="background-image : url( http://01.gatag.net/img/201506/22l/gatag-00008095.jpg)" >
-    <div class="container">
-      <div class="row text-center title">
-        <h2 style="margin-top:20px;">About Drillnote</h2>
-        <h4 class="light muted"><br>
-        Drillnoteは完全無料のドリル作成サービスです。<br>通信環境下にあればいつでもどこでもドリルを書くことができます。</h4>
-      </div>
-      <div class="row services">
-        <div class="col-md-4">
-          <div class="service">
-            <div class="icon-holder">
-            </div>
-            <h4 class="heading">利用料無料</h4>
-            <p class="description">Drillnoteでは、利用料などを一切いただいておりません。<br>
-            拡張機能を追加し、より便利になったPremiumモードを配信予定(2016年7月現在)ですが、基本機能は無料会員様のままで不自由なくご利用可能です。</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service">
-            <div class="icon-holder">
-            </div>
-            <h4 class="heading">ユーザビリティ</h4>
-            <p class="description">Drillnoteでは、シンプルな作業で感覚的にドリルを作成することができます。<br>
-            これまでのような、何度も紙に点を書いては消しゴムで消して…という作業ももちろん必要なく、よい作品を作ることに集中できます。</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="service">
-            <div class="icon-holder">
-            </div>
-            <h4 class="heading">マルチデバイス対応</h4>
-            <p class="description">Drillnoteでは、通信環境下にあればどのような機器からもアクセス可能です。<br>
-            そのため、あらかじめパソコンから作成したドリルを現地でタブレットやスマートフォンから調整することも可能です。(2016年7月時点では、アプリリリースの予定はありません。)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="cut cut-bottom"></div>
-  </section>
-  <section id="team" class="section gray-bg">
-    <div class="container">
-      <div class="row title text-center">
-        <h2 class="margin-top">Team</h2>
-        <h4 class="light muted">We're a dream team!</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="team text-center">
-            <div class="cover" style="background:url('img/team/team-cover1.jpg'); background-size:cover;">
-              <div class="overlay text-center">
-                <h3 class="white">$69.00</h3>
-                <h5 class="light light-white">1 - 5 sessions / month</h5>
-              </div>
-            </div>
-            <img src="img/team/team3.jpg" alt="Team Image" class="avatar">
-            <div class="title">
-              <h4>Ben Adamson</h4>
-              <h5 class="muted regular">Fitness Instructor</h5>
-            </div>
-            <button data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill">Sign Up Now</button>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="team text-center">
-            <div class="cover" style="background:url('img/team/team-cover2.jpg'); background-size:cover;">
-              <div class="overlay text-center">
-                <h3 class="white">$69.00</h3>
-                <h5 class="light light-white">1 - 5 sessions / month</h5>
-              </div>
-            </div>
-            <img src="img/team/team1.jpg" alt="Team Image" class="avatar">
-            <div class="title">
-              <h4>Eva Williams</h4>
-              <h5 class="muted regular">Personal Trainer</h5>
-            </div>
-            <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="team text-center">
-            <div class="cover" style="background:url('img/team/team-cover3.jpg'); background-size:cover;">
-              <div class="overlay text-center">
-                <h3 class="white">$69.00</h3>
-                <h5 class="light light-white">1 - 5 sessions / month</h5>
-              </div>
-            </div>
-            <img src="img/team/team2.jpg" alt="Team Image" class="avatar">
-            <div class="title">
-              <h4>John Phillips</h4>
-              <h5 class="muted regular">Personal Trainer</h5>
-            </div>
-            <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue-fill ripple">Sign Up Now</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section id="pricing" class="section">
-    <div class="container">
-      <div class="row title text-center">
-        <h2 class="margin-top white">Pricing</h2>
-        <h4 class="light white">Choose your favorite pricing plan and sign up today!</h4>
-      </div>
-      <div class="row no-margin">
-        <div class="col-md-7 no-padding col-md-offset-5 pricings text-center">
-          <div class="pricing">
-            <div class="box-main active" data-img="img/pricing1.jpg">
-              <h4 class="white">Yoga Pilates</h4>
-              <h4 class="white regular light">$850.00 <span class="small-font">/ year</span></h4>
-              <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Sign Up Now</a>
-              <i class="info-icon icon_question"></i>
-            </div>
-            <div class="box-second active">
-              <ul class="white-list text-left">
-                <li>One Personal Trainer</li>
-                <li>Big gym space for training</li>
-                <li>Free tools &amp; props</li>
-                <li>Free locker</li>
-                <li>Free before / after shower</li>
-              </ul>
-            </div>
-          </div>
-          <div class="pricing">
-            <div class="box-main" data-img="img/pricing2.jpg">
-              <h4 class="white">Cardio Training</h4>
-              <h4 class="white regular light">$100.00 <span class="small-font">/ year</span></h4>
-              <a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-white-fill">Sign Up Now</a>
-              <i class="info-icon icon_question"></i>
-            </div>
-            <div class="box-second">
-              <ul class="white-list text-left">
-                <li>One Personal Trainer</li>
-                <li>Big gym space for training</li>
-                <li>Free tools &amp; props</li>
-                <li>Free locker</li>
-                <li>Free before / after shower</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section section-padded blue-bg">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <div class="owl-twitter owl-carousel">
-            <h2 class="margin-top">早速、ドリルを書いてみましょう！</h2>
-        <h4 class="light muted">Drillnoteを利用するには会員登録が必須となっています。<br>
-        下記のボタンから会員登録をし、早速あなたのドリルを作成してみましょう。</h4>
-         <% if user_signed_in? then %>
-         <span data-toggle="modal" data-target="#modal1" class="btn btn-blue" style='float:right;'><%= link_to 'My Pageへ', "/users/sign_up", method: :get %></span>
-         <% else %>
-        <span data-toggle="modal" data-target="#modal1" class="btn btn-blue" style='float:right;'><%= link_to 'Sign Up', "/users/sign_up", method: :get %></span>
-        <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content modal-popup">
-        <a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-        <h3 class="white">Sign Up</h3>
-        <form action="" class="popup-form">
-          <input type="text" class="form-control form-white" placeholder="Full Name">
-          <input type="text" class="form-control form-white" placeholder="Email Address">
-          <div class="dropdown">
-            <button id="dLabel" class="form-control form-white dropdown" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Pricing Plan
-            </button>
-            <ul class="dropdown-menu animated fadeIn" role="menu" aria-labelledby="dLabel">
-              <li class="animated lightSpeedIn"><a href="#">1 month membership ($150)</a></li>
-              <li class="animated lightSpeedIn"><a href="#">3 month membership ($350)</a></li>
-              <li class="animated lightSpeedIn"><a href="#">1 year membership ($1000)</a></li>
-              <li class="animated lightSpeedIn"><a href="#">Free trial class</a></li>
-            </ul>
-          </div>
-          <div class="checkbox-holder text-left">
-            <div class="checkbox">
-              <input type="checkbox" value="None" id="squaredOne" name="check" />
-              <label for="squaredOne"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-submit">Submit</button>
-        </form>
-      </div>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <div class="row bottom-footer text-center-mobile">
-        <div class="col-sm-8_center" style="margin:auto 0;">
-         <div class = "text_center" style="text-align:center;">
-          <p > &copy; 2015 All Rights Reserved.</p>
-        </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- Holder for mobile navigation -->
-  <div class="mobile-nav">
-    <ul>
-    </ul>
-    <a href="#" class="close-link"><i class="arrow_up"></i></a>
-  </div>
-  <!-- Scripts -->
-  <script src="js/jquery-1.11.1.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/wow.min.js"></script>
-  <script src="js/typewriter.js"></script>
-  <script src="js/jquery.onepagenav.js"></script>
-  <script src="js/main.js"></script>
-</body>
+   <div class="second_content container">
+   <div class="row">
+    <h2 style="color:black; text-align:center; padding-top:100px; font-size:40px;">Our Mission</h2>
+     <div class="col-xs-12 col-lg-6 col-lg-offset-3" style="margin-bottom:60px"><div style="color:#222222; padding-top:30px; font-size:13px;">
+     Drillnoteはマルチデバイス対応の無料ドリル作成サービスです。<br>
+     パソコンはもちろん、タブレット、スマートフォンからいつでもどこでもアイデアを思いついた時すぐ残すことができます。<br><br>
 
-</html>
+     また、これまでの紙とペンで書いては消して…という煩雑な作業からも解放されます。<br>
+     Drillnoteではシンプルな操作でドリルの作成・編集作業を行うことができ、<br>
+     紙に書いていた頃とは比較にならないほどスムーズにドリルを書くことができます。<br><br>
+
+     さらにドリルの再生機能も備えており、ドリルを実際に動かしてみることで動作のイメージを具体的に持つことができ、
+     より精度の高いドリルを作成することができます。
+   </p>
+   </div>
+ </div></div>
+
+<div class="container third_content">
+<div class="row">
+     <div class="right_content1 col-xs-12 col-lg-4 col-lg-offset-1"></div>
+     <div class="left_content1 col-xs-12 col-lg-4 col-lg-offset-1">
+     <h2 style="color:#333333; padding-top:50px;">感覚的な操作</h2>
+     <p style="color:#333333;padding-top:40px;">
+       Drillnoteではシンプルな操作でドリル作成ができます。<br><br>
+       余分な機能を排除しシンプルな操作と機能だけにしており、紙にドリルを記入する時のような
+       簡単さと気軽さで感覚的にドリルを書くことができます。
+     </p>
+     </div>
+</div>
+<div class="row" style="margin-top:30px">
+     <div class="right_content2 col-xs-12 col-lg-4 col-lg-offset-1"></div>
+     <div class="left_content2 col-xs-12 col-lg-4 col-lg-offset-1">
+       <h2 style="color:#333333; padding-top:70px;">アイデアをすぐに形に</h2>
+       <p style="color:#333333;padding-top:40px;">
+       いつでもどこでも、ドリルを書くことができます。<br><br>
+       アイデアを思いついたとき、すぐにDriinoteを立ち上げて形に残しましょう。<br>
+       Drillnoteは、あなたのアイデアを形に残しドリルをより素晴らしいものにするサポートをします。
+     </p>
+     </div>
+</div>
+<div class="row" style="margin-top:30px">
+     <div class="right_content3 col-xs-12 col-lg-4 col-lg-offset-1"></div>
+     <div class="left_content3 col-xs-12 col-lg-4 col-lg-offset-1">
+      <h2 style="color:#333333; padding-top:50px;">マルチデバイス対応</h2>
+      <p style="color:#333333;padding-top:40px;">
+       Drillnotenはすべてのデバイスに対応しています。<br><br>
+       作成したドリルは、いつどこでもどのデバイスからもアクセスすることができます。<br>
+       パソコンで書いたドリルを現地での状況に合わせてタブレットで修正したり、ドリルをスマートフォンで共有したり
+       と様々な使い方ができます。
+      </p>
+      </div>
+</div>
+</div>
+
+
+<div class="pic_write">
+   <div class="fifth_content">
+    <div class="row">
+      <div class="button_signin col-xs-12 col-lg-6 col-lg-offset-3"><a href="/project/how"><p style="text-align:center; color:white; font-size:40px; margin-top:auto; margin-bottom:auto;">Drillnoteの利用方法</p></a></div>
+      <div class="button_signin2 col-xs-12 col-lg-6 col-lg-offset-3"><a href="/project/questions"><p style="text-align:center; color:white; font-size:40px; margin-top:auto; margin-bottom:auto;">よくあるご質問集</p></a></div>
+     </div>
+    </div>
+</div>
+
+
+<div class="forth_content container">
+   <div class="row">
+     <h2 class="col-xs-12 col-lg-8 col-lg-offset-2" style="color:white; padding-top:180px;text-align:center;">さっそくドリルを書いてみましょう！</h2>
+    <% if user_signed_in? then %>
+     <div class="button_signin_bottom col-xs-12 col-lg-4 col-lg-offset-4"><a href="/project"><p style="text-align:center; color:white; font-size:40px; margin-top:auto; margin-bottom:auto;">マイページへ</p></a></div>
+    <% end %>
+
+    <% unless user_signed_in? %>
+     <p class="col-xs-10 col-xs-offset-1 col-lg-6 col-lg-offset-3" style="color:white; padding-top:20px; text-align:center;">下記より会員登録をして、Drillnoteをお試し下さい</p>
+
+     <div class="button_signin3 col-xs-12 col-lg-4 col-lg-offset-4"><a href="/users/sign_up"><p style="text-align:center; color:white; font-size:40px; margin-top:auto; margin-bottom:auto;">無料で会員登録</p></a></div>
+
+    <% end %>
+</div>
+</div>

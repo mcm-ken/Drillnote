@@ -1,16 +1,23 @@
-<h2>Forgot your password?</h2>
+<div class="ohori">
+<div class="back_content container">
+<div class="container" style="padding-top:100px;">
+<div class ="row">
+ <h1 style="text-align:center; color:white;">Drillnote</h1>
+ <p  style="text-align:center; color:white;">パスワード再設定</p>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+  <div class="col-lg-4 col-lg-offset-4 col-xs-12" id="signin_box" style="margin-bottom:100px;margin-top:100px;">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
+   <div class="field">
+   <%= f.email_field :email, class: "login_email", placeholder: "メールアドレス", id:"email_box", autofocus: true %>
+   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+   <div class="actions" style="margin-top:10px; margin-bottom:30px;">
+    <%= f.submit "パスワード変更のメール送信", class: "btn btn-default", id: "submit_button"%>
+   </div>
+   <% end %>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>

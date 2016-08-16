@@ -1,30 +1,42 @@
-<div class="container">
- <div class ="form_box">
-<h2>Drillnote<span>サインイン</span></h2>
+<div class="ohori">
+<div class="back_content container">
+<div class="container" style="padding-top:100px;">
+<div class ="row">
+ <h1 style="text-align:center; color:white;">Drillnote</h1>
+ <p  style="text-align:center; color:white;">サインイン</p>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <div class="col-lg-4 col-lg-offset-4 col-xs-12" id="signin_box">
+   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <div class="field">
+   <%= f.email_field :email, class: "login_email", placeholder: "メールアドレス", id:"email_box", autofocus: true %>
+   </div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end -%>
+   <div class="field" style="margin-top:30px;">
+    <%= f.password_field :password, class: "pass", placeholder: "パスワード", id: "password_box1",autocomplete: "off" %>
+   </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+      <% if devise_mapping.rememberable? -%>
+      <div class="field" style="margin-top:60px;">
+
+      <%= f.check_box :remember_me, id:"check_box"%>
+      <%= f.label :"パスワードを記録する", id:"remember"%>
+      </div>
+      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+        <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name) %><br />
+        <% end -%>
+      <% end -%>
+
+   <div class="actions" style="margin-top:10px; margin-bottom:30px;">
+    <%= f.submit "サインイン", class: "btn btn-default", id: "submit_button"%>
+   </div>
+   <% end %>
   </div>
-  </div>
+ <div class="button_sign_top col-xs-12 col-lg-4 col-lg-offset-4" style="margin-top:100px; margin-bottom:50px">
+ <p style="text-align:center; color:white;">アカウントはお持ちですか？</p>
+ <a href="/users/sign_up"><p style="text-align:center; color:white; font-size:30px; margin-top:auto; margin-bottom:auto;">新規会員登録</p></a></div>
+
+</div>
+</div>
+</div>

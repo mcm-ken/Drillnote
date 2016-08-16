@@ -1,0 +1,32 @@
+<div class="container-fluid">
+ <div class ="row" style="margin-left:auto; margin-right:auto;">
+   <div class="col-xs-12  col-lg-6 col-lg-push-3" style="margin-top:80px;">
+    <h1 style="text-align:center;">
+      ドリルの設定
+    </h1>
+   </div>
+ </div>
+
+<%= form_tag("/project/#{@project.id}", method: :put) do %>
+ <div class="col-xs-12 col-lg-8 col-lg-push-2 row" style="margin-top:40px;  margin-bottom:50px; background-color:white;">
+     <div class="col-xs-12 col-lg-10 col-lg-push-1" style="margin-top:40px;">
+    <input type="text" name="name" id="name_drill" class="col-xs-10 col-xs-push-1 col-lg-10 col-lg-push-1" value="<%= @project.name %>">
+    <input placeholder="プレイヤー名を入力" type="text" id="player_name" class="col-xs-6 col-xs-push-1 col-lg-7 col-lg-push-1">
+    <button type="button" class="btn btn-primary col-xs-3 col-xs-push-2 col-lg-2 col-lg-push-2" id="add_player">追加</button>
+
+
+     <input placeholder="削除したいプレイヤー名を入力" type="text" id="delete_name" class="col-xs-6 col-xs-push-1 col-lg-7 col-lg-push-1">
+    <button type="button" class="btn btn-primary col-xs-3 col-xs-push-2 col-lg-2 col-lg-push-2" id="delete_player">削除</button>
+
+     <div class="col-xs-10 col-xs-push-1 col-lg-10 col-lg-push-1" style="margin-top:20px; ">
+      <ul id="note_player" style="margin-top:50px;" class="<%= @project.id %>">
+       <% @member.each do |member| %>
+       <li class="col-xs-4 col-lg-3 member_name <%= member.name %> name_list"><%= member.name %></li>
+       <% end %>
+      </ul>
+
+     </div>
+    <button type="submit" class="btn btn-primary col-xs-4 col-xs-push-4 col-lg-4 col-lg-push-4" id="kakutei" value="SENT">登録</button>
+   <% end %>
+  </div>
+</div>

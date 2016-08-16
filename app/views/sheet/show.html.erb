@@ -1,0 +1,27 @@
+<div class="container">
+ <div class="row" style="margin-top:80px;">
+
+  <% @sheet.each do |project| %>
+  <div class="col-lg-8 col-lg-offset-2 col-xs-12" style="background-color:white;border: 1px solid black; height:100%;" id="note_box">
+   <div class="row">
+
+   <div class="col-lg-5 col-lg-offset-1 col-xs-6" id="text_box">Sheet#<input type="number" name="example2" value="<%= project%>" id="text_box"></div>
+    <!-- Large modal -->
+    <div class="col-lg-5 col-lg-offset-1 col-xs-6" id="change_button" ><!-- ボタンのボックス -->
+     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg" id="show_button" style="height:100%;">このシートをみる</button>
+    </div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby=" myLargeModalLabel">
+   <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content">
+      ...
+     </div>
+   </div>
+ </div><!-- ここまでモーダル -->
+
+   </div>
+  </div>
+  <% end %>
+
+ </div>
+</div>
