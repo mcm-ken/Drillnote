@@ -3,7 +3,7 @@
    <div class="col-lg-10 col-lg-offset-1 col-xs-10 col-xs-offset-1" style="font-size:30px;">
    <h2 style="text-align:center;"><%= @project.name %></h2></div>
    <diV class="col-lg-7 col-lg-offset-3 col-xs-10 col-xs-offset-1" style="margin-top:50px;">
-   <%= link_to '新規シート作成', "/project/#{@project.id}/sheet/new", method: :get, :class=>'btn btn-primary btn-lg', :role=>'button', :style=>'font-size:25px;', :id=>"show_name"%>
+   <%= link_to '新規シート作成', "/project/#{@project.id}/sheet/new", method: :get, :class=>'btn btn-primary btn-lg', :role=>'button', :style=>'font-size:25px;', :id=>"show_name" ,data: {no_turbolink: true }%>
    <%= link_to 'シート並び替え', "/project/#{@project.id}/sheet/1", method: :get, :class=>'btn btn-primary btn-lg', :role=>'button', :style=>'font-size:25px;'%>
     <a class="btn btn-primary btn-lg" id="tooltip_hide" data-toggle="modal" data-target=".bs-example-modal-lg" style="margin-left:auto; margin-right:auto; font-size:25px;" role="button">ドリルを再生</a></div>
   </div>
@@ -47,7 +47,7 @@
   <% array3 = [] %>
 
  <div class="center">
-  <h3>sheet#<%= aa %></h3>
+  <h3 id="show_name_index">sheet#<%= aa %></h3>
 
    <% @project_sheet.each do |sheets| %>
     <% array2 << sheets if sheets.number == aa %>
@@ -69,7 +69,7 @@
   <!-- Tab panes -->
    <div class="tab-content">
     <div role="tabpanel" class="tab-pane fade in active" id="home"><h4 style ="margin-top:20px; margin-left:10px;"><%= simple_format(direction) %></h4></div>
-    <%= link_to 'このシートを編集する', "/project/#{@project.id}/sheet/#{aa}/edit", method: :get, role: 'button', class: 'btn btn-primary btn-lg', style: 'margin-top:30px; margin-left:40px;'%>
+    <%= link_to 'このシートを編集する', "/project/#{@project.id}/sheet/#{aa}/edit", method: :get, role: 'button', class: 'btn btn-primary btn-lg', style: 'margin-top:30px; margin-left:40px;',data: {no_turbolink: true }%>
     <%= link_to 'このシートを削除する', "/project/#{@project.id}/sheet/#{aa}/all", method: :get, role: 'button', class: 'btn btn-primary btn-lg', style: 'margin-top:30px; margin-left:40px;', data: {confirm: "本当に削除しますか？"}%>
 
 
@@ -89,6 +89,6 @@
  </div>
 <% end %>
 <div class="button_signin_index col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="show_name">
-<a href="/project/<%= @project.id%>/sheet/new" ><p style="text-align:center; font-size:30px;font-color:black;margin-top:10px;">新規シート作成</p></a></div>
+<a href="/project/<%= @project.id%>/sheet/new" data-no-turbolink="1"><p style="text-align:center; font-size:30px;font-color:black;margin-top:10px;">新規シート作成</p></a></div>
 </div>
 </div>

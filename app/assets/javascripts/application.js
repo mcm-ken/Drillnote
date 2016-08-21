@@ -18,5 +18,7 @@
 //= require jquery.ui.touch-punch.min
 //= require jquery.turbolinks
 //= require turbolinks
+//= require jspdf
+//= require html2canvas
 //= require bootstrap
 //= require_tree .

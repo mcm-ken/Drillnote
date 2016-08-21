@@ -56,5 +56,6 @@ group :development do
   gem 'jquery-ui-rails'
   gem 'gon'
   gem 'jquery-turbolinks'
+  gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
 end
 

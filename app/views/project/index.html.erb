@@ -19,7 +19,7 @@
   <%= link_to '編集', "/project/#{pros.id}/sheet", method: :get, :class=>'btn btn-primary col-xs-4 col-xs-push-1 col-lg-4 col-lg-push-1', :id=>'index_button1', :role=>'button'%>
   <%= link_to '削除', "/project/#{pros.id}", method: :delete, :class=>'btn btn-primary col-xs-4 col-xs-push-2 col-lg-4 col-lg-push-2', :id=>'index_button1', :role=>'button', data: {confirm: "本当に削除しますか？"} %></div>
   <div class="row" style="margin-bottom:50px"><%= link_to '設定',"/project/#{pros.id}/setting", method: :get, :class=>'btn btn-primary col-xs-4 col-xs-push-1 col-lg-4 col-lg-push-1', :id=>'index_button3', :role=>'button' %>
-    <%= link_to '印刷', "#", method: :get,  :class=>'btn btn-primary col-xs-4 col-xs-push-2 col-lg-4 col-lg-push-2', :id=>'index_button3', :role=>'button' %></div>
+    <%= link_to '印刷', "/project/#{pros.id}/sheet/print", :class=>'btn btn-primary col-xs-4 col-xs-push-2 col-lg-4 col-lg-push-2', :id=>'index_button3', :role=>'button',data: {no_turbolink: true } %></div>
 
  </div>
 <% end %>

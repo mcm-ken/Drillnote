@@ -9,7 +9,16 @@ class SheetController < ApplicationController
      array.sort!
     @member = Sheet.where("project_id = #{params[:project_id]}")
     @sheet = array
+    @project = Project.find(params[:project_id])
+    @project_sheet = Sheet.where("project_id = #{params[:project_id]}")
+
    end
+
+   def print
+    @project = Project.find(params[:project_id])
+    @project_sheet = Sheet.where("project_id = #{params[:project_id]}")
+   end
+
 
     def index
      @project = Project.find(params[:project_id])

@@ -13,7 +13,10 @@ Rails.application.routes.draw do
       member do
        get 'all'
        get 'done'
-     end
+      end
+      collection do
+       get 'print'
+      end
    end
     resources :member
 end

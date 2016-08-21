@@ -38,11 +38,31 @@ $(document).on 'click', '#delete_player', ->
      $('#delete_name').val("")
      $(".#{name}").remove()
      $.ajax "/project/#{project_id}/member/1", type: "DELETE", data: {member_delete: {project_id: project_id, name: name}}
-###$(document).on 'click', '#kakutei', ->
 
- $.post "/project", projects: {name: name}, (block_id) ->
-   project_id =
-    $('li.member_name').each ->
-      name = $(this).attr('class').split(' ')[4]
-      $.post "/project/#{project_id}/member", projects: {name: name, project_id: project_id}, (block_id) ->
-#DB:memberを作成する###
+#print
+$(document).on 'click', '#drill_print', ->
+  title = $('#show_title').text()
+  pdf = new jsPDF('l', 'mm', [250,360])
+  aa = 1
+
+  $('div.block').each ->
+   pdf.addPage()
+   html2canvas document.getElementById("row#{aa}"), onrendered: (canvas) ->
+    pdf.addImage dataURI = canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0
+    aa = aa + 1
+  pdf.save title + '.pdf'
+
+###
+$(document).on 'click', '#drill_print', ->
+  title = $('#show_title').text()
+  pdf = new jsPDF('l', 'mm', [250,360])
+  html2canvas document.getElementsByClassName('row'), onrendered: (canvas) ->
+    dataURI = canvas.toDataURL("image/jpeg")
+    pdf.addPage()
+    pdf.addImage dataURI, 'JPEG', 0, 0
+  html2canvas document.getElementsByClassName('row'), onrendered: (canvas) ->
+    dataURI = canvas.toDataURL("image/jpeg")
+    pdf.addPage()
+    pdf.addImage dataURI, 'JPEG', 0, 0
+    pdf.save title + '.pdf'
+###

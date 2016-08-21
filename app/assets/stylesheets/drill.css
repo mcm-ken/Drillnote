@@ -278,6 +278,23 @@ div.the_cavaliers{
   position:relative;
   background-color: white;
 }
+.button_signin_index2{
+  height:70px;
+  margin-top:80px;
+  margin-bottom:80px;
+  border: 5px solid black;
+  border-radius: 10px;
+  position:relative;
+  background-color: white;
+}
+.button_signin_index3{
+  height:70px;
+  margin-bottom:80px;
+  border: 5px solid black;
+  border-radius: 10px;
+  position:relative;
+  background-color: white;
+}
 .button_signin_bottom{
   height:70px;
   margin-top:120px;

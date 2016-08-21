@@ -9,7 +9,7 @@ $ ->
     else
        id = $('.mmbox id').data("hoge-id")
        [x, y] = positionOfNewBlock(e)
-       block = $("<div id ='tooltip tooltip_edit' class='dot #{value}'
+       block = $("<div id ='tooltip' class='dot #{value}'
        data-placement='bottom' data-toggle='tooltip' title= #{value} style='left: #{x}px; top: #{y}px;' />").
         draggable({ containment: "parent" }).css({ position: "absolute" })
         $('div#box').append(block)
@@ -34,6 +34,25 @@ $(document).on 'touchend', '#tooltip_edit', ->#表示
    $(this).tooltip('show')
 $(document).on 'touchend', '#tooltip', ->#表示
    $(this).tooltip('show')
+$(document).on 'touchend', '#tooltip2', ->#表示
+   $(this).tooltip('show')
+$(document).on 'click', '#show_name_index', ->#表示
+ $('div#tooltip2').each ->
+   $(this).tooltip('show')
+
+$(document).on 'click', '#showplayer_button_new', ->#表示
+ $('div#tooltip').each ->
+   $(this).tooltip('show')
+$(document).on 'click', '#showplayer_button_edit', ->#表示
+ $('div#tooltip_edit').each ->
+   $(this).tooltip('show')
+$(document).on 'click', '#tooltip_hide', ->#表示
+ $('div#tooltip2').each ->
+   $(this).tooltip('hide')
+$(document).on 'click', '#tooltip_show', ->#表示
+ $('div#tooltip2').each ->
+   $(this).tooltip('show')
+
 
 $(document).on 'dblclick', '#tooltip', ->#削除
   member = $(this).attr('class').split(' ')[1]
@@ -57,11 +76,9 @@ $(window).load ->
  #とりあえず表示ボタン
  $('div#tooltip_edit').draggable({ containment: "parent" }).css({ position: "absolute" })
  $('div#tooltip').draggable({ containment: "parent" }).css({ position: "absolute" })
+ $('#tooltip_before').each ->
+   $(this).tooltip('show')
 
-
-
-$(document).on 'click', '#teishi', ->
-  alert("停止！")
 
 
 
@@ -127,12 +144,5 @@ $(document).on 'click', '#box_edit', ->
   #上書き保存
 
 
-
-$(document).on 'click', '#tooltip_hide', ->
-   $('.dot').tooltip('hide')
-
-$(document).on 'click', '#tooltip_show', ->
-   $('.dot').tooltip('show')
-
-
-
+#シートナンバー変更
+#$(document).on 'click', '#number_confirm', ->

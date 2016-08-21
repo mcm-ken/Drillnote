@@ -1,0 +1,67 @@
+<div class="container-fluid">
+
+<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p id="drill_print" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
+</div>
+
+  <% array1 = [] %>
+  <% @project_sheet.each do |aray| %>
+  <% array1 << aray.number %>
+  <% end %>
+
+  <% array1.uniq! %>
+  <% array1.sort! %>
+
+  <% array1.each do |aa| %>
+
+  <% array2 = [] %>
+  <% array3 = [] %>
+
+ <div class="row block" id="row<%= aa %>" style="margin-top: 50px; padding-bottom:50px;">
+ <div class="center_print">
+
+  <div class="col-lg-10 col-lg-offset-1 col-xs-10 col-xs-offset-1" style="font-size:30px;margin-top:50px;">
+   <h1 style="text-align:center;" id="show_title"><%= @project.name %></h1></div>
+  <h3 id="show_name_index" style="margin-top:30px;">sheet#<%= aa %></h3>
+
+   <% @project_sheet.each do |sheets| %>
+    <% array2 << sheets if sheets.number == aa %>
+   <% end %>
+   <% array2.each do |shets| %>
+    <% array3 << shets.dots %>
+   <% end %>
+
+   <% array3.uniq! %>
+   <% direction = array3[0] %>
+  <div class="rightbox" style="clear: both;">
+   <div>
+
+   <!-- Nav tabs -->
+   <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">ドリル</a></li>
+   </ul>
+
+  <!-- Tab panes -->
+   <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="home"><h4 style ="margin-top:20px; margin-left:10px;"><%= simple_format(direction) %></h4></div>
+
+   </div>
+
+   </div>
+  </div>
+
+
+   <div id="box"  style="clear: both;">
+   <% @project_sheet.each do |nums| %>
+    <% if nums.number == aa then %>
+     <%= content_tag(:div, nil, class: "dot #{nums.member} #{nums.member}_#{aa}", title:"#{nums.member}",id: "tooltip2", style: "left: #{nums.x}px; top: #{nums.y}px") %>
+    <% end #if節のend%>
+   <% end #eachの終り aa%>
+   </div>
+
+ </div>
+ </div>
+<% end %>
+
+<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p id="drill_print" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
+<div class="button_signin_index3 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" style="text-align: center" role="button"><a href="/project" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">マイページへ</a></div>
+</div>
