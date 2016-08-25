@@ -2048,3 +2048,5 @@ var jsPDF = (function(global) {
 	}
 	return jsPDF;
 }(typeof self !== "undefined" && self || typeof window !== "undefined" && window || this));
+
+

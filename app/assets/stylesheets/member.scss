@@ -321,14 +321,14 @@
 }}
 @media screen and(min-width: 1000px){
   #text_box{
-  margin-top:10px;
+  margin-top:20px;
   font-size:20px;
   height:100%;
 }}
 @media screen and(max-width: 999px){
   #text_box{
   font-size:28px;
-  margin-top:15px;
+  margin-top:20px;
   margin-bottom:auto;
   height:100%;
 }}
@@ -350,13 +350,6 @@
   #note_box{
   margin-top:30px;
 }}
-/*
-@media screen and(min-width: 1000px){{
-}}
-@media screen and(max-width: 999px){{
-}}
- */
-
 @media screen and(max-width: 999px){
 .center_print {
   margin: 0 auto;
@@ -381,3 +374,36 @@
 .block {
   background-color: white;
 }}
+@media screen and(min-width: 1000px){
+h1#how_to{
+  text-align:center;
+  margin-top:80px;
+  margin-bottom:80px;
+  font-size:60px
+}}
+@media screen and(max-width: 999px){
+h1#how_to{
+  text-align:center;
+  margin-top:100px;
+  margin-bottom:100px;
+  font-size:80px
+}}
+@media screen and(min-width: 1000px){
+p#explain{
+  font-size:16px;
+}}
+@media screen and(max-width: 999px){
+p#explain{
+  font-size:14px;
+}}
+@media screen and(min-width: 1000px){
+h4#small_show{
+  font-size:25px;
+}}
+
+/*
+@media screen and(min-width: 1000px){{
+}}
+@media screen and(max-width: 999px){{
+}}
+ */

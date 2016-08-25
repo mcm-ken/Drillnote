@@ -5,10 +5,13 @@ $(document).on 'click', '#saisei_kaishi', ->
     y1 = parseInt($("div.#{value_member[index_member]}_#{value_number[index_number]}").css("top"))
     $("div.#{value_member[index_member]}_saisei").animate {'left':"#{x1}px",'top':"#{y1}px"}, 3500
 # おわったら動作
-    #gon.sheets_member.forEach (val,index_member,value_member) ->
-    #x1 = parseInt($("div.#{value_member[index_member]}_1").css("left"))
-    #y1 = parseInt($("div.#{value_member[index_member]}_1").css("top"))
-    #$("div.#{value_member[index_member]}_saisei").animate {'left':"#{x1}px",'top':"#{y1}px"}, 0
+$(document).on 'click', '#tooltip_show', ->#表示
+ $('div#tooltip2').each ->
+   $(this).tooltip('show')
+ gon.sheets_member.forEach (val,index_member,value_member) ->
+     x1 = parseInt($("div.#{value_member[index_member]}_1").css("left"))
+     y1 = parseInt($("div.#{value_member[index_member]}_1").css("top"))
+     $("div.#{value_member[index_member]}_saisei").animate {'left':"#{x1}px",'top':"#{y1}px"}, 0
 
 
 
@@ -39,30 +42,10 @@ $(document).on 'click', '#delete_player', ->
      $(".#{name}").remove()
      $.ajax "/project/#{project_id}/member/1", type: "DELETE", data: {member_delete: {project_id: project_id, name: name}}
 
-#print
-$(document).on 'click', '#drill_print', ->
-  title = $('#show_title').text()
-  pdf = new jsPDF('l', 'mm', [250,360])
-  aa = 1
 
-  $('div.block').each ->
-   pdf.addPage()
-   html2canvas document.getElementById("row#{aa}"), onrendered: (canvas) ->
-    pdf.addImage dataURI = canvas.toDataURL("image/jpeg"), 'JPEG', 0, 0
-    aa = aa + 1
-  pdf.save title + '.pdf'
-
-###
-$(document).on 'click', '#drill_print', ->
-  title = $('#show_title').text()
-  pdf = new jsPDF('l', 'mm', [250,360])
-  html2canvas document.getElementsByClassName('row'), onrendered: (canvas) ->
-    dataURI = canvas.toDataURL("image/jpeg")
-    pdf.addPage()
-    pdf.addImage dataURI, 'JPEG', 0, 0
-  html2canvas document.getElementsByClassName('row'), onrendered: (canvas) ->
-    dataURI = canvas.toDataURL("image/jpeg")
-    pdf.addPage()
-    pdf.addImage dataURI, 'JPEG', 0, 0
-    pdf.save title + '.pdf'
-###
+#シート番号
+#$(document).on 'click', '#number_confirm', ->
+ # number = []
+  #$('input#text_box').each ->
+   #sheet = $(this).val()
+   n#umber.unshift(sheet) #新しい番号を配列numberへ

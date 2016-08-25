@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require iquery.ui.sortable
 //= require jquery-ui
 //= require jquery-ui.min
 //= require jquery.ui.touch-punch

@@ -96,6 +96,7 @@
   </div>
       <div id="getnumber" data-hoge-id="<%= maxes %>"></div>
   <div id="box">
+  <% if maxes ==1 then %>
    <% param = 1 %>
    <% @members.each do |member| %>
    <% xx = param % 10 %>
@@ -105,6 +106,13 @@
        <%= content_tag(:div, nil, class:"dot #{member.name}", title:"#{member.name}",id:"tooltip", style: "left: #{x}px; top: #{y}px") %>
        <% param = param + 1 %>
        <% end %>
+  <% else %>
+    <% @project_sheet.each do |nums| %>
+     <% if nums.number == max then %>
+     <%= content_tag(:div, nil, class: "dot #{nums.member} #{nums.id}", title:"#{nums.member}",id: "tooltip", style: "left: #{nums.x}px; top: #{nums.y}px") %>
+      <% end #if節のend%>
+    <% end #eachの終り%>
+  <% end %>
   </div>
   </div>
  </div>

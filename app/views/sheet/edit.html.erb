@@ -56,7 +56,6 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home"><textarea cols="30" rows="10" name="direction" class="drill_direction" style="margin-top:10px;"><%=@sheet_dot%></textarea>
-
     <%= link_to 'シート確定', "/project/#{@project.id}/sheet", method: :get, role: 'button', class: 'btn btn-primary btn-lg', id: 'box_edit',data: {no_turbolink: true } %>
     <%= link_to 'シート一覧', "/project/#{@project.id}/sheet", method: :get, :class=>'btn btn-primary btn-lg', :role=>'button', :style=>'margin-right:10px;' , data: {confirm: "編集中のデータが失われますが、よろしいですか？", no_turbolink: true } %>
     </div>

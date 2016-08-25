@@ -49,9 +49,8 @@ $(document).on 'click', '#showplayer_button_edit', ->#表示
 $(document).on 'click', '#tooltip_hide', ->#表示
  $('div#tooltip2').each ->
    $(this).tooltip('hide')
-$(document).on 'click', '#tooltip_show', ->#表示
- $('div#tooltip2').each ->
-   $(this).tooltip('show')
+ $('div#tooltip').each ->
+   $(this).tooltip('hide')
 
 
 $(document).on 'dblclick', '#tooltip', ->#削除
@@ -121,7 +120,6 @@ $(document).on 'click', 'a#box_editer', (f)->
    y = 100
    [x, y]
 
-
 $(document).on 'click', '#box_edit', ->
   project_id = $('div#getid').attr("data-hoge-id")
   number = $('div#getnumber').attr("data-hoge-id")
@@ -140,9 +138,26 @@ $(document).on 'click', '#box_edit', ->
 
    else
     $.ajax "/project/#{project_id}/sheet/#{sheet_id}", type: "PATCH", data: {sheet: { x: x, y: y, member: member, project_id: project_id, number: number, dots: dots}}
-  alert("シートの変更が完了しました！")#新規作成＆保存ん
+  #window.location.href '/project/#{project_id}/sheet'#新規作成＆保存ん
   #上書き保存
 
+$(document).on 'click', '#drill_print', ->
+ numberer = $("div.max_number_get").attr('id')
+ number = parseInt numberer, 10
 
-#シートナンバー変更
-#$(document).on 'click', '#number_confirm', ->
+ if number == -1
+  alert("まだシートがありません")
+ else
+  title = $('#show_title').text()
+  pdf = new jsPDF('l', 'mm', [250,360])
+  drill = []
+  $("div.row").each (index) ->
+   html2canvas this, onrendered: (canvas) ->
+    drillnote = canvas.toDataURL("image/jpeg")
+    drill.push(drillnote)
+
+    if index == number
+     $.each drill, (i,value) ->
+      pdf.addPage() unless i == 0
+      pdf.addImage dataURI = value, 'JPEG', 0, 0
+      pdf.save title + '.pdf' if i == number

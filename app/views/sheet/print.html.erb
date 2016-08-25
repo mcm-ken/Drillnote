@@ -1,8 +1,3 @@
-<div class="container-fluid">
-
-<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p id="drill_print" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
-</div>
-
   <% array1 = [] %>
   <% @project_sheet.each do |aray| %>
   <% array1 << aray.number %>
@@ -10,13 +5,30 @@
 
   <% array1.uniq! %>
   <% array1.sort! %>
+  <% maxes = array1.max unless array1 == [] %>
+  <% maxes = 0 if array1 == [] %>
+  <% maxim = maxes - 1 %>
 
+
+<% if array1 == [] then %>
+
+<div class="container-fluid">
+<div style="text-align:center;"><h2 style="margin-top:150px">まだシートがありません</h2></div>
+<div class="button_signin_index3 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" style="text-align: center" role="button"><a href="/project" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">マイページへ</a></div>
+</div>
+
+<% else %>
+<div class="container-fluid">
+
+<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
+</div>
   <% array1.each do |aa| %>
 
   <% array2 = [] %>
   <% array3 = [] %>
 
- <div class="row block" id="row<%= aa %>" style="margin-top: 50px; padding-bottom:50px;">
+
+ <div class="row block" id="<%= aa %> get_print" style="margin-top: 50px; padding-bottom:50px;">
  <div class="center_print">
 
   <div class="col-lg-10 col-lg-offset-1 col-xs-10 col-xs-offset-1" style="font-size:30px;margin-top:50px;">
@@ -62,6 +74,9 @@
  </div>
 <% end %>
 
-<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p id="drill_print" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
+<div class="button_signin_index2 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" id="drill_print" role="button"><p style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">PDF形式でダウンロード</p></div>
 <div class="button_signin_index3 col-xs-8 col-xs-offset-2 col-lg-4 col-lg-offset-4" style="text-align: center" role="button"><a href="/project" style="text-align:center; color:black; font-size:36px; margin-top:auto; margin-bottom:auto;">マイページへ</a></div>
 </div>
+
+  <div class="max_number_get" id="<%= maxim %>"></div>
+<% end %>
