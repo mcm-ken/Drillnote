@@ -60,5 +60,17 @@ group :development do
   group :production, :staging do
    gem 'rails_12factor'
   end
+   gem 'pry-rails'
+  gem 'devise'
+  gem 'paperclip'
+  gem 'kaminari'
+  gem 'therubyracer'
+  gem 'twitter-bootstrap-rails'
+  gem 'bootstrap-material-design', '0.1.4'
+  gem 'lazy_high_charts'
+  gem 'jquery-ui-rails'
+  gem 'gon'
+  gem 'jquery-turbolinks'
+  gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
 end
 
