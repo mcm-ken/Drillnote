@@ -58,9 +58,8 @@ group :development do
   gem 'jquery-turbolinks'
   gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
   group :production, :staging do
-   gem 'rails_12factor'
-  end
-   gem 'pry-rails'
+  gem 'rails_12factor'
+  gem 'pry-rails'
   gem 'devise'
   gem 'paperclip'
   gem 'kaminari'
@@ -72,5 +71,6 @@ group :development do
   gem 'gon'
   gem 'jquery-turbolinks'
   gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
+end
 end
 
