@@ -57,5 +57,8 @@ group :development do
   gem 'gon'
   gem 'jquery-turbolinks'
   gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
+  group :production, :staging do
+   gem 'rails_12factor'
+  end
 end
 

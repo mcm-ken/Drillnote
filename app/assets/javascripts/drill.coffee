@@ -51,6 +51,9 @@ $(document).on 'click', '#tooltip_hide', ->#表示
    $(this).tooltip('hide')
  $('div#tooltip').each ->
    $(this).tooltip('hide')
+$(document).on 'click', '#acordion', ->#表示
+ $('div#tooltip_acordion').each ->
+  $(this).tooltip('show')
 
 
 $(document).on 'dblclick', '#tooltip', ->#削除
@@ -97,6 +100,7 @@ $(document).on 'click', '#box2', ->
    $.post "/project/#{project_id}/sheet", sheet: { x: x, y: y, member: member, project_id: project_id, number: number, dots: dots}, (block_id) ->
 
   alert("シートを保存しました！")#新規作成＆保存ん
+  window.location.href = "/project/#{project_id}/sheet"
 
 
 $(document).on 'click', 'a#box_editer', (f)->
@@ -138,8 +142,87 @@ $(document).on 'click', '#box_edit', ->
 
    else
     $.ajax "/project/#{project_id}/sheet/#{sheet_id}", type: "PATCH", data: {sheet: { x: x, y: y, member: member, project_id: project_id, number: number, dots: dots}}
-  #window.location.href '/project/#{project_id}/sheet'#新規作成＆保存ん
+  window.location.href = "/project/#{project_id}/sheet"#新規作成＆保存ん
   #上書き保存
+
+$(document).on 'click', '#drill_print', ->
+ numberer = $("div.max_number_get").attr('id')
+ number = parseInt numberer, 10
+
+ if number == -1
+  alert("まだシートがありません")
+ else
+  title = $('#show_title').text()
+  pdf = new jsPDF('l', 'mm', [250,360])
+  drill = []
+  $("div.row").each (index) ->
+   html2canvas this, onrendered: (canvas) ->
+    drillnote = canvas.toDataURL("image/jpeg")
+    drill.push(drillnote)
+
+    if index == number
+     $.each drill, (i,value) ->
+      pdf.addPage() unless i == 0
+      pdf.addImage dataURI = value, 'JPEG', 0, 0
+      pdf.save title + '.pdf' if i == number
+
+
+$(document).on 'click', '#number_confirm', ->
+  numbers = []
+  $("input.number_box").each ->
+   number = $(this).val()
+   if number < 0
+    $(this).css("border": "1px solid red", "color":"red")
+    alert("シート番号は0以上の数字である必要があります。")
+    numbers = []
+    javascript_die()
+   else
+    numbers.push(number) #配列に新しい番号を入力
+#マイナスの数値をはじく
+  numbers_x = numbers.filter((x, i, self) ->
+   self.indexOf(x) == i and i != self.lastIndexOf(x))#重複したもの
+
+
+  if numbers_x.length == 0
+   project_id = $("div.get_id").attr('id')
+   #リクエスト送信処理
+   sheet_before = []#変更があるシートを配列に追加
+   sheet_after = [] #キー：変更前、中身が変更後のシート番号
+   $("input.number_box").each ->
+    number_before = $(this).attr('id')
+    parseInt(number_before, 10)
+    number_after = $(this).val()
+    if number_before == number_after
+    else
+      sheet_before.push(number_before)
+      sheet_after.push(number_after)
+   $.each sheet_before, (i,value) ->
+    number = value
+    $.ajax "/project/#{project_id}/sheet/did", type: "get", data:{number:number}#deleteへ
+#ここからドリル作成
+   $.each sheet_before, (i,value) ->
+    number = sheet_after[i]
+    dots = $("h4.#{value}").text()
+
+    $("div.#{value}").each ->
+     x = $(this).css("left") #xpx
+     y = $(this).css("top") #ypx
+     member = $(this).attr('class').split(' ')[1] #player name
+     $(this).tooltip('hide').remove()
+
+     $.post "/project/#{project_id}/sheet", sheet: { x: x, y: y, member: member, project_id: project_id, number: number, dots: dots}, (block_id) ->
+   alert("ページ番号の入れ替えを完了しました！")
+   window.location.href = "/project/#{project_id}/sheet"
+
+  else
+   $.each numbers_x, (i,value) ->
+    $("input.number_box").each ->
+     number_a = $(this).val()
+     if number_a == value
+      $(this).css("border": "1px solid red", "color":"red")
+    alert("シート番号##{value}が複数存在しています")
+
+
 
 $(document).on 'click', '#drill_print', ->
  numberer = $("div.max_number_get").attr('id')

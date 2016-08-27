@@ -5,10 +5,10 @@ Rails.application.configure do
    config.action_mailer.smtp_settings = {
      :address => 'smtp.gmail.com',
      :port => 587,
-     :domain => 'gmail.com',
+     :domain => 'smtp.gmail.com',
      :authentication => :plain,
      :user_name => "drillnote@gmail.com", #gmailアドレス
-     :password => "drillnote-marching", #gmailパスワード
+     :password => "bpglcmnbbqzaoioh", #gmailパスワード
      :enable_starttls_auto => true,
    }
   # Settings specified here will take precedence over those in config/application.rb.

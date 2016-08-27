@@ -1,26 +1,71 @@
+<% if @sheet == [] then %>
+<div class="container">
+ <div class="center_text" row>
+ <div class="col-lg-12 col-xs-12">
+ <h2 style="margin-top:150px">まだシートはありません</h2>
+ <p><span class="center_text" style="text-align:center;">
+ <%= link_to "新しいシートを書いてみましょう!" ,"/project/#{@project.id}/sheet",  method: :get %></span>
+ </div>
+</div>
+
+<% else %>
+<div class="get_id" id="<%= @project.id %>"></div>
+
 <div class="container">
  <div class="row" style="margin-top:80px;">
 
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="background-color:white;height:100%;">
   <% @sheet.each do |project| %>
-  <div class="col-lg-8 col-lg-offset-2 col-xs-12" style="background-color:white;border: 1px solid black; height:100%;" id="note_box">
-   <div class="row">
 
-   <div class="col-lg-5 col-lg-offset-1 col-xs-6" id="text_box">Sheet#<input type="number" name="example2" value="<%= project %>" id="text_box <%= project%>" class=""></div>
-    <!-- Large modal -->
-    <div class="col-lg-5 col-lg-offset-1 col-xs-6" id="change_button" ><!-- ボタンのボックス -->
-     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-lg" id="show_button" style="height:100%;">このシートをみる</button>
+  <div class="panel panel-default  col-lg-12 col-xs-12">
+    <div class="panel-heading" style="background-color:white;" role="tab" id="heading<%= project %>">
+      <h2 class="panel-title" >
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= project %>" style="font-size:28px;" aria-expanded="false" aria-controls="collapse<%= project %>" id="acordion">
+          Sheet#<%= project %>
+        </a>
+        <input style="font-size:28px; margin-left:60px;" type="number" name="number" class="number_box" id="<%=project %>" value="<%= project %>">
+      </h2>
     </div>
+    <div id="collapse<%= project %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading<%= project %>">
+      <div class="panel-body">
+       <div id="box4" style="float:left;">
+       <% @project_sheet.each do |nums| %>
+       <% if nums.number == project then %>
+       <%= content_tag(:div, nil, class: "dot #{nums.member} #{project}", title:"#{nums.member}",id: "tooltip_acordion", style: "left: #{nums.x}px; top: #{nums.y}px") %>
+       <% end #if節のend%>
+       <% end #eachの終り aa%>
+       </div>
+  <% array2 = [] %>
+  <% array3 = [] %>
+   <% @project_sheet.each do |sheets| %>
+    <% array2 << sheets if sheets.number == project %>
+   <% end %>
+   <% array2.each do |shets| %>
+    <% array3 << shets.dots %>
+   <% end %>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby=" myLargeModalLabel">
-   <div class="modal-dialog modal-lg" role="document">
-     <div class="modal-content">
-      ...
-     </div>
+   <% array3.uniq! %>
+   <% direction = array3[0] %>
+<div class="rightbox_2">
+   <div>
+
+   <!-- Nav tabs -->
+   <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">ドリル</a></li>
+   </ul>
+
+  <!-- Tab panes -->
+   <div class="tab-content">
+    <div role="tabpanel" class="tab-pane fade in active" id="home"><h4 style ="margin-top:20px; margin-left:10px;" class="<%= project %>"><%= simple_format(direction) %></h4></div>
    </div>
- </div><!-- ここまでモーダル -->
 
    </div>
   </div>
+      </div>
+    </div>
+  </div>
+
+
   <% end %>
 
 <div class="button_signin_index col-xs-10 col-xs-offset-1 col-lg-4 col-lg-offset-4" id="number_confirm">
@@ -28,3 +73,4 @@
 
  </div>
 </div>
+<% end %>

@@ -7,41 +7,40 @@
    <%= @project.name %>
    </h1>
   </div>
-
-
-<div class="col-lg-offset-2 col-lg-3 col-xs-3">
-  <h3 id="sheet_number" style = "margin-top:50px; margin-bottom:20px;">Sheet#<%= max %></h3>
-</div>
-<diV class="col-lg-offset-1 col-lg-5 col-xs-9" style = "margin-top:10px;margin-bottom:20px;">
-  <button type="button" class="btn btn-primary" id= "showplayer_button_edit">プレイヤー名表示</button>
-<% if max > 1 then %>
- <button type="button" class="btn btn-primary" id= "tooltip_hide" data-toggle="modal" data-target=".bs-example-modal-lg">前のシートを見る</button>
-
- <!-- Modal -->
- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby ="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Sheet#<%= max-1 %></h4>
-      </div>
-      <div class="modal-body row">
-       <div id="box3" class="col-lg-12 col-xs-12">
-       <% @project_sheet.each do |nums| %>
+  <div class="col-lg-8 col-lg-offset-2 col-xs-12">
+  <% if max > 1 then %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true" style="background-color:white;height:100%;">
+  <div class="panel panel-default  col-lg-12 col-xs-12">
+    <div class="panel-heading" style="background-color:white;" role="tab" id="heading">
+      <h2 class="panel-title" >
+        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse" style="font-size:28px;" aria-expanded="false" aria-controls="collapse" id="acordion">
+          前のシートを見る
+        </a>
+      </h2>
+    </div>
+    <div id="collapse" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading">
+      <div class="panel-body">
+        <h2>Sheet#<%= max-1 %></h2>
+       <div id="box4" style="margin-right:auto;margin-left:auto;">
+        <% @project_sheet.each do |nums| %>
        <% if nums.number == (max-1) then %>
-       <%= content_tag(:div, nil, class:"dot #{nums.member}",data: { :"sheet-id" => nums.id }, title:"#{nums.member}",id:"tooltip2", style: "left: #{nums.x}px; top: #{nums.y}px") %>
-       <% end #eachの終り%>
-       <% end #ifの終り%>
+       <%= content_tag(:div, nil, class:"dot #{nums.member}",data: { :"sheet-id" => nums.id }, title:"#{nums.member}",id:"tooltip_acordion", style: "left: #{nums.x}px; top: #{nums.y}px") %>
+       <% end #if節のend%>
+       <% end #eachの終り aa%>
        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">閉じる</button>
       </div>
     </div>
   </div>
- </div>
-<% end #if節、モーダルのおわり%>
+</div>
+<% end #ifの終り%>
+  </div>
 
+
+  <div class="col-lg-offset-2 col-lg-3 col-xs-3">
+   <h3 id="sheet_number" style = "margin-top:50px; margin-bottom:20px;">Sheet#<%= max %></h3>
+  </div>
+  <diV class="col-lg-offset-1 col-lg-5 col-xs-9" style = "margin-top:40px;margin-bottom:20px;">
+  <button type="button" class="btn btn-primary" id= "showplayer_button_edit">プレイヤー名表示</button>
 </div>
 <div class="center">
   <div class="rightbox">
@@ -56,7 +55,7 @@
   <!-- Tab panes -->
   <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="home"><textarea cols="30" rows="10" name="direction" class="drill_direction" style="margin-top:10px;"><%=@sheet_dot%></textarea>
-    <%= link_to 'シート確定', "/project/#{@project.id}/sheet", method: :get, role: 'button', class: 'btn btn-primary btn-lg', id: 'box_edit',data: {no_turbolink: true } %>
+    <%= link_to 'シート確定', "#", method: :get, role: 'button', class: 'btn btn-primary btn-lg', id: 'box_edit',data: {no_turbolink: true } %>
     <%= link_to 'シート一覧', "/project/#{@project.id}/sheet", method: :get, :class=>'btn btn-primary btn-lg', :role=>'button', :style=>'margin-right:10px;' , data: {confirm: "編集中のデータが失われますが、よろしいですか？", no_turbolink: true } %>
     </div>
 
@@ -84,7 +83,6 @@
      <%= content_tag(:div, nil, class: "dot #{nums.member} #{nums.id}", title:"#{nums.member}",id: "tooltip_edit", style: "left: #{nums.x}px; top: #{nums.y}px") %>
     <% end #if節のend%>
    <% end #eachの終り%>
-
 </div>
 </div>
 </div>

@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     resources :sheet do
       member do
        get 'all'
-       get 'done'
       end
       collection do
+       get 'did'
        get 'print'
       end
    end

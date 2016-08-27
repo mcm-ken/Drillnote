@@ -1,6 +1,7 @@
 class SheetController < ApplicationController
    def show
     project = Sheet.where("project_id = #{params[:project_id]}")
+
     array = []
      project.each do |sheet|
       array << sheet.number
@@ -63,6 +64,17 @@ class SheetController < ApplicationController
       @sheet_number = params[:id].to_i
       sheet = Sheet.find_by(project_id: params[:project_id], number: params[:id])
       @sheet_dot = sheet.dots
+    end
+
+
+    def did
+      sheet_params = params.permit(:number,:project_id)
+      number = params[:number]
+      sheet = Sheet.where("project_id = #{params[:project_id]}")
+      sheet.where("number = #{number}")
+      sheet.each do |sheets|
+        sheets.destroy
+      end
     end
 
     def update

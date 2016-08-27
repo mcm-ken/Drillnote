@@ -68,6 +68,16 @@ div#box3{
   -moz-background-size:cover;
   background-size:cover;
 }
+div#box4{
+  position:relative;
+  width:600px;
+  height:600px;
+  background-image: url(/assets/drill.png);
+  background-position:center top;
+  background-repeat:no-repeat;
+  -moz-background-size:cover;
+  background-size:cover;
+}
 .lower{
   height:80px;
   width:1000px;
@@ -89,8 +99,7 @@ div.dot {
     background-color: red;
     cursor: pointer;
   }
-
-  .rightbox{
+.rightbox{
     float:right;
     width: 350px;
     height: 600px;
@@ -363,7 +372,7 @@ div.the_cavaliers{
   border-radius: 10px;
 }
 div.ohori{
-  background-image: url("ohori.png"); /* 全体の背景画像 */
+  background-image: url("pr.png"); /* 全体の背景画像 */
   background-repeat: no-repeat;            /* 背景を繰り返さない */
   background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
   -moz-background-size:cover;
@@ -375,6 +384,20 @@ div.ohori{
   position: relative;
   height: auto !important;
 }
+div.cavies{
+  background-image: url("thecavaliers.png"); /* 全体の背景画像 */
+  background-repeat: no-repeat;            /* 背景を繰り返さない */
+  background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
+  -moz-background-size:cover;
+  background-size:cover;
+  background-attachment:fixed;             /* 背景画像を固定する */
+  height:100%;
+  width:100%;
+  clear: both;
+  position: relative;
+  height: auto !important;
+}
+
 div.pr{
   background-image: url("pr.png"); /* 全体の背景画像 */
   background-repeat: no-repeat;            /* 背景を繰り返さない */
@@ -396,21 +419,4 @@ ul.jquery-ui-sortable {
     margin: 0;
     padding: 0;
     width: 70%;
-}
-li.jquery-ui-sortable-item {
-    margin: 5px;
-    padding: 0.5em;
-    border: 1px darkgray solid;
-    border-radius: 5px;
-    background-color: #fcfcfc;
-}
-li.jquery-ui-sortable-item div {
-    padding: 0 0 0 1em;
-    font-size: 15px;
-    font-weight: bold;
-    cursor: move;
-    border-radius: 5px;
-}
-li.jquery-ui-sortable-item ul {
-    font-size: 13px;
 }
