@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' }
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords'}
   resources :project do
     member do
     get 'setting'

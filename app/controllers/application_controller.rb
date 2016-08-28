@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
 
-  before_filter :basic
+  #before_filter :basic
 
-  private
-  def basic
-    authenticate_or_request_with_http_basic do |user, pass|
-      user == 'drillnote' && pass == 'kentaro'
-    end
-  end
+ # private
+  #def basic
+   # authenticate_or_request_with_http_basic do |user, pass|
+     # user == 'drillnote' && pass == 'kentaro'
+   # end
+ # end
 
   def after_sign_in_path_for(resource)
     '/project'
