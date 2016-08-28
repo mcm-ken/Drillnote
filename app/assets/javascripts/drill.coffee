@@ -222,8 +222,6 @@ $(document).on 'click', '#number_confirm', ->
       $(this).css("border": "1px solid red", "color":"red")
     alert("シート番号##{value}が複数存在しています")
 
-
-
 $(document).on 'click', '#drill_print', ->
  numberer = $("div.max_number_get").attr('id')
  number = parseInt numberer, 10
@@ -244,3 +242,48 @@ $(document).on 'click', '#drill_print', ->
       pdf.addPage() unless i == 0
       pdf.addImage dataURI = value, 'JPEG', 0, 0
       pdf.save title + '.pdf' if i == number
+
+
+#ここから
+$(document).on 'click', '#saisei_kaishi', ->
+ gon.sheets_number.forEach (val,index_number,value_number) ->
+  gon.sheets_member.forEach (val,index_member,value_member) ->
+    x1 = parseInt($("div.#{value_member[index_member]}_#{value_number[index_number]}").css("left"))
+    y1 = parseInt($("div.#{value_member[index_member]}_#{value_number[index_number]}").css("top"))
+    $("div.#{value_member[index_member]}_saisei").animate {'left':"#{x1}px",'top':"#{y1}px"}, 3500
+# おわったら動作
+$(document).on 'click', '#tooltip_show', ->#表示
+ $('div#tooltip2').each ->
+   $(this).tooltip('show')
+ gon.sheets_member.forEach (val,index_member,value_member) ->
+     x1 = parseInt($("div.#{value_member[index_member]}_1").css("left"))
+     y1 = parseInt($("div.#{value_member[index_member]}_1").css("top"))
+     $("div.#{value_member[index_member]}_saisei").animate {'left':"#{x1}px",'top':"#{y1}px"}, 0
+
+
+
+$(document).on 'click', '#add_player', ->
+  name = $('#player_name').val()
+
+  if name == ''
+     alert("プレイヤー名を入力していください")
+  else
+   project_id = $('ul#note_player').attr('class')
+   name = $('#player_name').val()
+   $('#player_name').val("")
+   list = $("<li>#{name}</li>").attr('class', "col-xs-6 col-lg-3 member_name #{name} name_list");
+   $('ul#note_player').append(list)
+   $.post "/project/#{project_id}/member", member: {project_id: project_id, name: name}, (block_id) ->
+
+
+$(document).on 'click', '#delete_player', ->
+  name = $('#delete_name').val()
+
+  if name == ''
+     alert("削除したいプレイヤー名を入力していください")
+  else
+     project_id = $('ul#note_player').attr('class')
+     name = $('#delete_name').val()
+     $('#delete_name').val("")
+     $(".#{name}").remove()
+     $.ajax "/project/#{project_id}/member/1", type: "DELETE", data: {member_delete: {project_id: project_id, name: name}}
