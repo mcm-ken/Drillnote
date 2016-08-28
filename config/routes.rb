@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' sessions: 'sessions'}
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords', sessions: 'sessions'}
   resources :project do
     member do
     get 'setting'
@@ -23,7 +23,6 @@ Rails.application.routes.draw do
     resources :member
 end
 
-   root 'project#top'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
