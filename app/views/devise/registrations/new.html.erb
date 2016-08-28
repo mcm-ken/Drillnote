@@ -16,7 +16,7 @@
 
    <div class="field" style="margin-top:30px;">
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(パスワードは半角英数<%= @minimum_password_length %>文字以上での設定)</em>
     <% end %><br />
     <%= f.password_field :password, placeholder: "パスワード",id: "password_box1",autocomplete: "off" %>
    </div>
