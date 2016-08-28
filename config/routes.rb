@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords' }
   resources :project do
     member do
     get 'setting'
@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
     get 'top'
     get 'how'
+    get 'email'
     get 'questions'
     end
     resources :sheet do
