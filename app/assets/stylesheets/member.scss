@@ -416,7 +416,33 @@ h4.small_show{
     border:2px solid black;
     background-color: white;
 }}
-
+@media screen and(min-width: 1000px){
+  div.the_cavaliers{
+  background-image: url("cavies.jpg"); /* 全体の背景画像 */
+  background-repeat: no-repeat;            /* 背景を繰り返さない */
+  background-position: 50% 50%;            /* 背景画像の位置は画面中央 */
+  -moz-background-size:cover;
+  background-size:cover;
+  background-attachment:fixed;             /* 背景画像を固定する */
+  height:1000px;
+  width:100%;
+  clear: both;
+  position: relative;
+  height: auto !important;
+}}
+@media screen and(max-width: 999px){
+  div.the_cavaliers{
+  background-image: url("thecavaliers.png"); /* 全体の背景画像 */
+  background-repeat: no-repeat;            /* 背景を繰り返さない */
+  background-position: 50% 0;            /* 背景画像の位置は画面中央 */
+  background-size:120%;
+  background-attachment:fixed;             /* 背景画像を固定する */
+  height:1000px;
+  width:100%;
+  clear: both;
+  position: relative;
+  height: auto !important;
+}}
 /*
 @media screen and(min-width: 1000px){{
 }}
