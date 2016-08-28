@@ -60,6 +60,7 @@ group :development do
   gem 'jquery-turbolinks'
   gem 'jspdf-rails', '~> 1.0', '>= 1.0.3'
   gem 'yui-compressor'
-end
+  gem 'barista'
+  end
 end
 
