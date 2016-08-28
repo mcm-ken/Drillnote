@@ -1,6 +1,17 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.action_mailer.delivery_method = :smtp
+   config.action_mailer.default :charset => "utf-8"
+   config.action_mailer.perform_deliveries = true
+   config.action_mailer.smtp_settings = {
+     :address => 'smtp.gmail.com',
+     :port => 587,
+     :domain => 'smtp.gmail.com',
+     :authentication => :plain,
+     :user_name => "drillnote@gmail.com", #gmailアドレス
+     :password => "fkrvczasnwoutiki", #gmailパスワード
+     :enable_starttls_auto => true,
+   }
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.action_mailer.default_url_options = { :host => 'yourapp.heroku.com' }
@@ -29,7 +40,7 @@ Rails.application.configure do
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
