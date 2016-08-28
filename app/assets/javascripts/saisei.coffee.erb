@@ -40,11 +40,3 @@ $(document).on 'click', '#delete_player', ->
      $('#delete_name').val("")
      $(".#{name}").remove()
      $.ajax "/project/#{project_id}/member/1", type: "DELETE", data: {member_delete: {project_id: project_id, name: name}}
-
-
-#シート番号
-#$(document).on 'click', '#number_confirm', ->
- # number = []
-  #$('input#text_box').each ->
-   #sheet = $(this).val()
-   #umber.unshift(sheet) #新しい番号を配列numberへ
